@@ -8,8 +8,15 @@ import Stack from '@mui/material/Stack'
 import Typography from '@mui/material/Typography'
 import DownloadIcon from '@mui/icons-material/Download'
 import { styled } from '@mui/material/styles'
-import LinkedInIcon from '@mui/icons-material/LinkedIn';
-import GitHubIcon from '@mui/icons-material/GitHub';
+import LinkedInIcon from '@mui/icons-material/LinkedIn'
+import GitHubIcon from '@mui/icons-material/GitHub'
+import { Grid, Divider } from '@mui/material'
+import Accordion from '@mui/material/Accordion'
+import AccordionActions from '@mui/material/AccordionActions'
+import AccordionSummary from '@mui/material/AccordionSummary'
+import AccordionDetails from '@mui/material/AccordionDetails'
+import ExpandMoreIcon from '@mui/icons-material/ExpandMore'
+import StackData, { StackItem } from '@/lib/stack'
 
 const StyledBox = styled('div')(({ theme }) => ({
     alignSelf: 'center',
@@ -83,35 +90,88 @@ const Hero: React.FC = () => {
                             width: { sm: '100%', md: '80%' }
                         }}
                     >
-                        Thank you for coming to my website
+                        I am a Full-Stack Cloud Developer. Thank you for coming
+                        to my website
                     </Typography>
-                    <div className='flex flex-row gap-4'>
-                      <Link href='/Noah_Seltzer_Resume.pdf'>
-                          <Button
-                              variant='contained'
-                              className='flex flex-row gap-2'
-                          >
-                              Resume
-                              <DownloadIcon />
-                          </Button>
-                      </Link>
-                      <Link href='https://www.linkedin.com/in/noah-seltzer'>
-                          <Button
-                              variant='contained'
-                              className='flex flex-row gap-2'
-                          >
-                              <LinkedInIcon />
-                          </Button>
-                      </Link>
-                      <Link href='https://github.com/noah-seltzer'>
-                          <Button
-                              variant='contained'
-                              className='flex flex-row gap-2'
-                          >
-                              <GitHubIcon />
-                          </Button>
-                      </Link>
+                    {/* <Typography
+                        sx={{
+                            textAlign: 'center',
+                            color: 'text.secondary',
+                            width: { sm: '100%', md: '80%' }
+                        }}
+                    >
+                        Thank you for coming to my website
+                    </Typography> */}
+                    {/* <Grid container sx={{ justifyContent: 'center', mt: 0.5, opacity: 0.6 }}>
+                    <Typography
+                        variant='h1'
+                        sx={{
+                            display: 'flex',
+                            flexDirection: { xs: 'column', sm: 'row' },
+                            alignItems: 'center',
+                            fontSize: '2rem'
+                        }}
+                    >
+                        
+                    </Typography>
 
+                  </Grid> */}
+
+                    <Grid className='w-full' container alignItems='space-between'>
+                        {StackData.map((data: StackItem, i: number) => {
+                            return (
+                                <div key={i}>
+                                    <Grid item>
+                                        <Accordion>
+                                            <AccordionSummary
+                                                expandIcon={<ExpandMoreIcon />}
+                                                aria-controls='panel1-content'
+                                                id='panel1-header'
+                                            >
+                                                {data.title}
+                                            </AccordionSummary>
+                                            <AccordionDetails>
+                                                {data.list.map((item: any) => {
+                                                    return (
+                                                        <div>
+                                                            {item.name}
+                                                            <Divider />
+                                                        </div>
+                                                    )
+                                                })}
+                                            </AccordionDetails>
+                                        </Accordion>
+                                    </Grid>
+                                </div>
+                            )
+                        })}
+                    </Grid>
+                    <div className='flex flex-row gap-4'>
+                        <Link href='/Noah_Seltzer_Resume.pdf'>
+                            <Button
+                                variant='outlined'
+                                className='flex flex-row gap-2'
+                            >
+                                Resume
+                                <DownloadIcon />
+                            </Button>
+                        </Link>
+                        <Link href='https://www.linkedin.com/in/noah-seltzer'>
+                            <Button
+                                variant='outlined'
+                                className='flex flex-row gap-2'
+                            >
+                                <LinkedInIcon />
+                            </Button>
+                        </Link>
+                        <Link href='https://github.com/noah-seltzer'>
+                            <Button
+                                variant='outlined'
+                                className='flex flex-row gap-2'
+                            >
+                                <GitHubIcon />
+                            </Button>
+                        </Link>
                     </div>
                 </Stack>
                 {/* <StyledBox id="image" /> */}
