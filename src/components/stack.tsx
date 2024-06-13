@@ -1,4 +1,4 @@
-import StackData, { StackItem } from '@/lib/stack'
+import StackData, { StackItem, StackListItem } from '@/lib/stack'
 import {
     Accordion,
     AccordionSummary,
@@ -31,9 +31,9 @@ const Stack = () => {
                                 {data.title}
                             </AccordionSummary>
                             <AccordionDetails>
-                                {data.list.map((item: any) => {
+                                {data.list.map((item: StackListItem, i: number) => {
                                     return (
-                                        <div>
+                                        <div key={i}>
                                             {item.name}
                                             <Divider />
                                         </div>

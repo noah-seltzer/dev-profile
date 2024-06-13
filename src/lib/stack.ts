@@ -5,7 +5,7 @@ const Stack: StackItem[] = [
         title: 'Infrastructure',
         list: [
             {
-                name: 'terraform',
+                name: 'Terraform',
                 description: 'lorem ipsum dolore est'
             },
             {
@@ -18,11 +18,15 @@ const Stack: StackItem[] = [
         title: 'Server',
         list: [
             {
-                name: 'terraform',
+                name: 'Node.js',
                 description: 'lorem ipsum dolore est'
             },
             {
-                name: 'AWS',
+                name: 'Express',
+                description: 'lorem ipsum dolore est'
+            },
+            {
+                name: 'Nest.JS',
                 description: 'lorem ipsum dolore est'
             },
         ]
@@ -32,11 +36,11 @@ const Stack: StackItem[] = [
         title: 'Database',
         list: [
             {
-                name: 'terraform',
+                name: 'MySql',
                 description: 'lorem ipsum dolore est'
             },
             {
-                name: 'AWS',
+                name: 'DynamoDB',
                 description: 'lorem ipsum dolore est'
             },
         ]
@@ -45,13 +49,24 @@ const Stack: StackItem[] = [
         title: 'Front End',
         list: [
             {
-                name: 'terraform',
+                name: 'NextJS + ReactJS',
                 description: 'lorem ipsum dolore est'
             },
             {
-                name: 'AWS',
+                name: 'NuxtJS + Vue.JS',
                 description: 'lorem ipsum dolore est'
             },
+            {
+                name: 'Tailwind',
+                description: 'lorem ipsum'
+            },
+            {
+                name: 'HeadlessUI',
+                description: 'lorem ipsum'
+            },
+            {
+                
+            }
         ]
     },
     {
