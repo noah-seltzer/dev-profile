@@ -1,5 +1,5 @@
-import Hero from "@/components/hero.tsx";
-import Stack from "@/components/stack.tsx";
+import Hero from "@/components/hero";
+import Stack from "@/components/stack";
 import { Projects } from "@/components/projects";
 
 
