@@ -1,4 +1,4 @@
-export interface StackListItem { name: string, description: string }
+export interface StackListItem { name: string, description?: string }
 export interface StackItem { title: string, list: StackListItem[] }
 const Stack: StackItem[] = [
     {
@@ -57,6 +57,10 @@ const Stack: StackItem[] = [
                 description: 'lorem ipsum dolore est'
             },
             {
+                name: 'Mui',
+                description: ''
+            },
+            {
                 name: 'Tailwind',
                 description: 'lorem ipsum'
             },
@@ -64,9 +68,6 @@ const Stack: StackItem[] = [
                 name: 'HeadlessUI',
                 description: 'lorem ipsum'
             },
-            {
-                
-            }
         ]
     },
     {

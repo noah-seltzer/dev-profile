@@ -11,7 +11,9 @@ export const Projects = () => {
                 <Typography variant='h6'>
                     React SVG Editor
                 </Typography>
-                <Typography></Typography>
+                <Typography>
+
+                </Typography>
             </div>
         </div>
     )
