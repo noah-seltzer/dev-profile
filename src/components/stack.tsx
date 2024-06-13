@@ -6,7 +6,10 @@ import {
     Divider,
     Typography,
     SxProps,
-    Theme
+    Theme,
+    List,
+    ListItem,
+    ListItemText
 } from '@mui/material'
 import ExpandMoreIcon from '@mui/icons-material/ExpandMore'
 
@@ -16,62 +19,58 @@ const Stack = () => {
     }
 
     const ItemSubtitleNameStyle: SxProps<Theme> = {
-        fontSize: '0.5rem'
+        fontSize: '0.83rem'
     }
     return (
-        <div className='flex flex-row justify-between w-full p-24 bg-gray-300'>
-            {StackData.map((data: StackItem, i: number) => {
-                return (
-                    <div key={i}>
-                        <Accordion
-                            sx={
-                                {
+        <div className='flex flex-col p-24 bg-gray-300'>
+            <div className='w-5/6 mb-16'>
+                <Typography variant='h3'>Development Stack</Typography>
+                <Typography>My developement tools of choice as well as other tools I have experience in.</Typography>
+            </div>
+            <div className='flex flex-row justify-between w-full'>
+                {StackData.map((data: StackItem, i: number) => {
+                    return (
+                        <div key={i}>
+                            <Accordion
+                                sx={{
                                     // background: 'none',
                                     // boxShadow: 'none',
                                     // borderWidth: 0.5,
                                     // borderColor: '#000'
-                                }
-                            }
-                        >
-                            <AccordionSummary
-                                expandIcon={<ExpandMoreIcon />}
-                                aria-controls='panel1-content'
-                                id='panel1-header'
+                                    width: '20rem'
+                                }}
                             >
-                                {data.title}
-                            </AccordionSummary>
-                            <AccordionDetails>
-                                <div className='flex flex-col gap-2'>
-                                    {data.list.map(
-                                        (item: StackListItem, i: number) => {
-                                            return (
-                                                <div key={i}>
-                                                    <Typography
-                                                        sx={ItemTitleNameStyle}
-                                                    >
-                                                        {item.name}
-                                                    </Typography>
-                                                    {item.description ?? (
-                                                        <Typography
-                                                            variant='caption'
-                                                            sx={
-                                                                ItemSubtitleNameStyle
-                                                            }
-                                                        >
-                                                            {item.description}
-                                                        </Typography>
-                                                    )}
-                                                    <Divider />
-                                                </div>
-                                            )
-                                        }
-                                    )}
-                                </div>
-                            </AccordionDetails>
-                        </Accordion>
-                    </div>
-                )
-            })}
+                                <AccordionSummary
+                                    expandIcon={<ExpandMoreIcon />}
+                                    aria-controls='panel1-content'
+                                    id='panel1-header'
+                                >
+                                    {data.title}
+                                </AccordionSummary>
+                                <AccordionDetails>
+                                    <List className='flex flex-col gap-2'>
+                                        {data.list.map(
+                                            (
+                                                item: StackListItem,
+                                                i: number
+                                            ) => {
+                                                return (
+                                                    <ListItem key={i}>
+                                                        <ListItemText
+                                                            primary={item.name}
+                                                            secondary={`Years Experience: ${item.years}`}
+                                                        />
+                                                    </ListItem>
+                                                )
+                                            }
+                                        )}
+                                    </List>
+                                </AccordionDetails>
+                            </Accordion>
+                        </div>
+                    )
+                })}
+            </div>
         </div>
     )
 }
