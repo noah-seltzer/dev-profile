@@ -5,7 +5,7 @@ import { Projects } from "@/components/projects";
 
 export default function Home() {
   return (
-    <main className="flex min-h-screen flex-col items-center justify-between">
+    <main className="flex min-h-screen flex-col items-center justify-between mb-24">
       <div className="flex flex-col w-full">
         <Hero />
         <Stack />

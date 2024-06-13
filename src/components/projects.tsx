@@ -1,4 +1,22 @@
-import { Divider, Typography } from '@mui/material'
+import { Button, Divider, List, ListItem, Typography } from '@mui/material'
+import Link from 'next/link'
+
+const projects = [
+    {
+        title: 'React SVG Editor',
+        description:
+            'Simple SVG editor project to practice buildng interactive react apps',
+        tools_list: [
+            'React',
+            'Next.JS',
+            'fabric.js',
+            'canvas',
+            'Cloudflare Pages'
+        ],
+        github_url: 'https://github.com/noah-seltzer/social-svg-editor',
+        demo_url: 'https://editor.noahseltzer.com'
+    }
+]
 
 export const Projects = () => {
     return (
@@ -8,12 +26,50 @@ export const Projects = () => {
             </div>
             <Divider />
             <div className='w-5/6'>
-                <Typography variant='h6'>
-                    React SVG Editor
-                </Typography>
-                <Typography>
-
-                </Typography>
+                {projects.map((project) => {
+                    return (
+                        <div className='flex flex-row justify-between'>
+                            <div>
+                                <Typography variant='h6'>
+                                    {project.title}
+                                </Typography>
+                                <Typography
+                                    sx={{
+                                        fontSize: '1rem'
+                                    }}
+                                >
+                                    {project.description}
+                                </Typography>
+                                {project.github_url && (
+                                    <Link href={project.github_url}>
+                                        <Button variant='text'>Github</Button>
+                                    </Link>
+                                )}
+                                {project.demo_url && (
+                                    <Link href={project.demo_url}>
+                                        <Button variant='text'>Live Demo</Button>
+                                    </Link>
+                                )}
+                            </div>
+                            <div>
+                                {project.tools_list && (
+                                    <div>
+                                        <Typography sx={{
+                                            fontWeight: 'bold'
+                                        }}>
+                                            Tools Used in Project
+                                        </Typography>
+                                        <List>
+                                            {project.tools_list.map((tool) => {
+                                                return <ListItem>{tool}</ListItem>
+                                            })}
+                                        </List>
+                                    </div>
+                                )}
+                            </div>
+                        </div>
+                    )
+                })}
             </div>
         </div>
     )
