@@ -26,9 +26,9 @@ export const Projects = () => {
             </div>
             <Divider />
             <div className='w-5/6'>
-                {projects.map((project) => {
+                {projects.map((project, i: number) => {
                     return (
-                        <div className='flex flex-row justify-between'>
+                        <div key={i} className='flex flex-row justify-between'>
                             <div>
                                 <Typography variant='h6'>
                                     {project.title}
@@ -60,8 +60,8 @@ export const Projects = () => {
                                             Tools Used in Project
                                         </Typography>
                                         <List>
-                                            {project.tools_list.map((tool) => {
-                                                return <ListItem>{tool}</ListItem>
+                                            {project.tools_list.map((tool, i: number) => {
+                                                return <ListItem key={i}>{tool}</ListItem>
                                             })}
                                         </List>
                                     </div>
